@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humidity Monitor</title>
+</head>
+<body>
+    <h1>Current Humidity Level</h1>
+    <div id="humidity">Loading...</div>
+
+    <script>
+        setInterval(function() {
+            fetch('sensor_data.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('humidity').innerText = data;
+            });
+        }, 5000);  // Cập nhật mỗi 5 giây
+    </script>
+</body>
+</html>
